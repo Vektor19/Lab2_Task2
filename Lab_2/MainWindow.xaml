@@ -1,0 +1,54 @@
+﻿<Window x:Class="Lab_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PauseWindow" Height="793" Width="954" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        UseLayoutRounding="True"
+        FontSize="30"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+
+        </Style>
+        <Style x:Key="MyFocusVisualStyle">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border BorderBrush="#e3dfd5" BorderThickness="5" Margin="1" Opacity="1">
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="#e3dfd5" BorderThickness="5" CornerRadius="10" Margin="1" MouseDown="WindowTitleBar_MouseDown">
+        <Border.Background>
+            <SolidColorBrush Color="Black" Opacity="0.8">
+
+            </SolidColorBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Name="ExitBtn" FocusVisualStyle="{DynamicResource MyFocusVisualStyle}" Margin="817,27,31,160" Grid.Row="0" Content="Exit" Background="#d1ebe1" FontWeight="Bold" Click="ExitBtn_Click"></Button>
+            <Label Background="#d1ebe1" HorizontalAlignment="Center" Content="Enter numbers separated by spaces:" Margin="0,229,0,230" Grid.RowSpan="2" Width="503" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Name="numberInputTextBox" Opacity="1" Margin="109,66,101,214" Grid.Row="1" Grid.RowSpan="2"/>
+            <Button Name="MaxProductBtn" FocusVisualStyle="{DynamicResource MyFocusVisualStyle}" Margin="292,96,292,62" Grid.Row="2" Content="Calculate Max Product" Background="#d1ebe1" FontWeight="Bold" Click="MaxProductBtn_Click"/>
+            <Label Name="ChooseTypeLabel" Content="Choose type of numbers" HorizontalAlignment="Left" Margin="31,27,0,160" Width="388" Background="#d1ebe1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ComboBox Name="DataTypeComboBox" HorizontalAlignment="Left" Margin="31,131,0,0" VerticalAlignment="Top" Width="388" Height="58">
+                <ComboBoxItem Content="Rational numbers" Tag="doubles"/>
+                <ComboBoxItem Content="Fractions" Tag="fractions"/>
+                <ComboBoxItem Content="Complex numbers" Tag="complex"/>
+            </ComboBox>
+        </Grid>
+    </Border>
+
+</Window>
